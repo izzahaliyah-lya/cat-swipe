@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import CardStack from './components/CardStack';
 import Results from './components/Results';
+import { cleanupImageCache } from './utils/cataas';
 import { Heart, X } from 'lucide-react';
 
 export interface Cat {
@@ -37,6 +38,8 @@ function App() {
     setCurrentIndex(0);
     setLikedCats([]);
     setCats([]);
+    // Clean up cached images when resetting
+    cleanupImageCache();
   };
 
   if (showResults) {
